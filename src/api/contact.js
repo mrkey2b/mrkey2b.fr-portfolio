@@ -11,13 +11,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 app.use(cors());
 app.use(express.json());
 
-// Debug global requêtes
 app.use((req, _res, next) => {
     console.log(`\n[${new Date().toISOString()}] ${req.method} ${req.url}`);
     next();
 });
 
-// Route de test
 app.get("/api/ping", (_req, res) => {
     return res.status(200).json({
         ok: true,

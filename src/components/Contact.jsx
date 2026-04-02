@@ -4,7 +4,7 @@ const initialForm = {
   name: "",
   email: "",
   message: "",
-  company: "", // honeypot
+  company: "",
 };
 
 const Contact = () => {
@@ -78,19 +78,21 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full rounded-[28px] border border-white/10 bg-white/5 p-8 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-10 xl:p-12">
-      <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">
+    <section
+      id="contact"
+      className="mx-auto w-full max-w-4xl rounded-[24px] border border-white/10 bg-white/5 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-8 lg:p-10">
+      <p className="text-xs uppercase tracking-[0.2em] text-zinc-400">
         Prise de contact
       </p>
       <h3 className="mt-2 text-3xl font-bold text-white">Contact</h3>
 
-      <p className="mt-4 max-w-2xl text-[16px] leading-[30px] text-zinc-400">
+      <p className="mt-4 max-w-xl text-[15px] leading-7 text-zinc-400">
         Une mission, un projet, une collaboration ou une demande technique ?
         Décrivez votre besoin et votre contexte, je reviendrai vers vous dès que
         possible.
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-7">
+      <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-5">
         <input
           type="text"
           name="company"
@@ -102,7 +104,7 @@ const Contact = () => {
         />
 
         <label className="flex flex-col">
-          <span className="mb-3 text-[15px] font-medium text-white">
+          <span className="mb-2 text-sm font-medium text-white">
             Votre Nom / Prénom
           </span>
           <input
@@ -111,12 +113,12 @@ const Contact = () => {
             value={form.name}
             onChange={handleChange}
             placeholder="Nom et prénom"
-            className="rounded-2xl border border-white/10 bg-black/20 px-6 py-4 text-white placeholder:text-zinc-400 outline-none transition focus:border-violet-400/40 focus:bg-black/30"
+            className="rounded-xl border border-white/10 bg-black/20 px-5 py-3.5 text-white placeholder:text-zinc-400 outline-none transition focus:border-violet-400/40 focus:bg-black/30"
           />
         </label>
 
         <label className="flex flex-col">
-          <span className="mb-3 text-[15px] font-medium text-white">
+          <span className="mb-2 text-sm font-medium text-white">
             Votre Mail
           </span>
           <input
@@ -125,40 +127,40 @@ const Contact = () => {
             value={form.email}
             onChange={handleChange}
             placeholder="votre@email.com"
-            className="rounded-2xl border border-white/10 bg-black/20 px-6 py-4 text-white placeholder:text-zinc-400 outline-none transition focus:border-violet-400/40 focus:bg-black/30"
+            className="rounded-xl border border-white/10 bg-black/20 px-5 py-3.5 text-white placeholder:text-zinc-400 outline-none transition focus:border-violet-400/40 focus:bg-black/30"
           />
         </label>
 
         <label className="flex flex-col">
-          <span className="mb-3 text-[15px] font-medium text-white">
+          <span className="mb-2 text-sm font-medium text-white">
             Votre Message
           </span>
           <textarea
-            rows={8}
+            rows={5}
             name="message"
             value={form.message}
             onChange={handleChange}
             placeholder="Parlez-moi de votre projet, de votre besoin ou de votre demande..."
-            className="resize-none rounded-2xl border border-white/10 bg-black/20 px-6 py-4 text-white placeholder:text-zinc-400 outline-none transition focus:border-violet-400/40 focus:bg-black/30"
+            className="resize-none rounded-xl border border-white/10 bg-black/20 px-5 py-3.5 text-white placeholder:text-zinc-400 outline-none transition focus:border-violet-400/40 focus:bg-black/30"
           />
         </label>
 
         {feedback.message && (
           <div
-            className={`rounded-2xl border px-4 py-3 text-sm ${feedback.type === "success"
-                ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
-                : "border-red-500/20 bg-red-500/10 text-red-300"
+            className={`rounded-xl border px-4 py-3 text-sm ${feedback.type === "success"
+              ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
+              : "border-red-500/20 bg-red-500/10 text-red-300"
               }`}
           >
             {feedback.message}
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-4 pt-2">
+        <div className="flex flex-wrap items-center gap-3 pt-1">
           <button
             type="submit"
             disabled={loading}
-            className="rounded-2xl bg-white px-8 py-3 text-sm font-bold text-black transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70"
+            className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-black transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {loading ? "Envoi en cours..." : "Envoyer le message"}
           </button>
